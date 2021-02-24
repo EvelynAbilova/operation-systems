@@ -1,10 +1,10 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 public class FrequencyString {
-    public static Map<String, Integer> FrequencyMap = new HashMap<>();
+    public static ConcurrentMap<String, Integer> FrequencyMap = new ConcurrentHashMap<>();
 
-    public static synchronized void increaseCounter(String currentString) {
+    public static void increaseCounter(String currentString) {
         if (FrequencyMap.containsValue(currentString)) {
             FrequencyMap.put(currentString, FrequencyMap.get(currentString) + 1);
         } else {

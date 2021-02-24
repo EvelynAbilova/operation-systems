@@ -14,8 +14,10 @@ public class FrequencyThread extends Thread {
 
     @Override
     public void run() {
-        for (int i = threadNumber; i < strings.size(); i += threadNumber) {
-            FrequencyString.increaseCounter(strings.get(i));
+        if(!currentThread().isInterrupted()) {
+            for (int i = threadNumber; i < strings.size(); i += threadNumber) {
+                FrequencyString.increaseCounter(strings.get(i));
+            }
         }
     }
 }

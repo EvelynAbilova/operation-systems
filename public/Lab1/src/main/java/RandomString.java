@@ -5,6 +5,7 @@ import java.util.Random;
 public class RandomString {
     public static List<String> getRandomString(int size) {
         ArrayList<String> Words = new ArrayList<>();
+
         Words.add("The");
         Words.add("Room");
         Words.add("oh");
@@ -27,15 +28,12 @@ public class RandomString {
         Words.add("About");
         Words.add("That");
 
-
-
         Random random = new Random();
         List<String> RandomString = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
             RandomString.add(Words.get(random.nextInt(Words.size())));
         }
-//        System.out.println(RandomString);
         return RandomString;
     }
 }
