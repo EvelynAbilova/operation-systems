@@ -17,12 +17,16 @@ public class FrequencyAnalyzer {
         if (numberOfThreads > words.size()) {
             numberOfThreads = words.size();
         }
-
+        List<FrequencyThread> threads = new ArrayList<>();
         for (int i = 0; i < numberOfThreads; i++) {
             FrequencyThread thread = new FrequencyThread();
             thread.setArray(words);
             thread.setThreadNumber(i);
+            threads.add(thread);
             thread.start();
+        }
+        for (FrequencyThread thread : threads
+        ) {
             thread.interrupt();
             try {
                 thread.join();
@@ -30,6 +34,7 @@ public class FrequencyAnalyzer {
                 e.printStackTrace();
             }
         }
+
 
         return getResult();
 
